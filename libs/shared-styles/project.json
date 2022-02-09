@@ -1,0 +1,43 @@
+{
+  "root": "libs/shared-styles",
+  "sourceRoot": "libs/shared-styles/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared-styles",
+        "tsConfig": "libs/shared-styles/tsconfig.lib.json",
+        "project": "libs/shared-styles/package.json",
+        "entryFile": "libs/shared-styles/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/shared-styles/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared-styles/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared-styles"],
+      "options": {
+        "jestConfig": "libs/shared-styles/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

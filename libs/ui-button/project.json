@@ -1,0 +1,43 @@
+{
+  "root": "libs/ui-button",
+  "sourceRoot": "libs/ui-button/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ui-button",
+        "tsConfig": "libs/ui-button/tsconfig.lib.json",
+        "project": "libs/ui-button/package.json",
+        "entryFile": "libs/ui-button/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "libs/ui-button/rollup.config.js",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/ui-button/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ui-button/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-button"],
+      "options": {
+        "jestConfig": "libs/ui-button/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

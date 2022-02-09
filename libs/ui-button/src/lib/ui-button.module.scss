@@ -1,0 +1,10 @@
+@import 'variables';
+
+.button {
+  background-color: $cta-primary-bg;
+  color: $cta-primary-text;
+  border-radius: 5px;
+  border: 1px  solid $cta-primary-bg;
+  padding: 10px;
+  font-size: 18px;
+}
